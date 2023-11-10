@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-mono flex justify-center pt-2">GEMSTONE BAKERY</h1>
+<P class="text-mono flex justify-center pt-2">everything is baked to order so please order at least 48 hours in advance</P>
+<div class="grid grid-cols-3 gap-4 pt-4">
+    {% for p in product %}
+     
+        <div class="card card-compact w-96 bg-base-100 shadow-xl mb-6">
+            <figure><img src="{{ p.images[0] }}" alt="{{ p.name }}" /></figure>
+            <div class="card-body">
+            <h2 class="card-title">{{ p.name }}</h2>
+            <p>{{ p.description }}</p>
+            
+            </div>
+        </div>
+    
+    {% endfor %}
+ </div>
+{% endblock %}

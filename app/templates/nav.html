@@ -1,0 +1,78 @@
+
+<div class="navbar bg-base-100 sticky top-0 z-50">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        {% if current_user.is_authenticated %}
+          
+          <li><a href="/">Home</a></li>
+          <li><a href="/menu">Menu</a></li>
+          <li><a href="/gallery">Insparation</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/monthly-classes">Monthly Classes</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/order-form">Order a Custom dessert</a></li>
+          <li><a href="/write-review">Leave a review</a></li>
+          <li><a href="/my-reviews">My reviews</a></li>
+
+        {% else %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/menu">Menu</a></li>
+          <li><a href="/gallery">Insparation</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/monthly-classes">Monthly Classes</a></li>
+          <li><a href="/about-us">About Us</a></li>          
+          <li><a href="/login">Sign In</a></li>
+        {% endif %}
+
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-center">
+        <img class="mask mask-hexagon-2 h-20" src="../static/GemstoneLogo.jpg" />
+      {#<a class=" normal-case font-sans text-xl text-primary">GEMSTONE BAKERY</a>#}
+    </div>
+    <div class="navbar-end">
+    {% if current_user.is_authenticated %}
+        <button class="btn btn-ghost btn-circle">
+            <div class="indicator">
+                <i class="fa-brands fa-instagram fa-lg"></i>
+            </div>
+        </button>
+      <button class="btn btn-ghost btn-circle">
+        <div class="indicator">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+        </div>
+      </button>
+      <button class="btn btn-ghost btn-circle">
+        <div class="indicator">
+            <i class="fa-brands fa-yelp" style="color: #000000;"></i>
+        </div>
+      </button>
+      <button class="btn btn-ghost btn-outline">
+        <div class="indicator">
+            <li><a href="/logout">Sign out</a></li>
+        </div>
+      </button>
+      {% else %}
+              <button class="btn btn-ghost btn-circle">
+            <div class="indicator">
+                <i class="fa-brands fa-instagram fa-lg"></i>
+            </div>
+        </button>
+      <button class="btn btn-ghost btn-circle">
+        <div class="indicator">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+        </div>
+      </button>
+      <button class="btn btn-ghost btn-circle">
+        <div class="indicator">
+            <i class="fa-brands fa-yelp" style="color: #000000;"></i>
+        </div>
+      </button>
+      {% endif %}
+</div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@fontsource/anton": "^5.0.17",
+    "firebase": "^10.5.2",
+    "flowbite": "^2.0.0",
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "daisyui": "^3.9.4"
+  }
+}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="flex justify-center bg-primary pt-8 pb-8 text-lg text-gray-100">Create an account to get 10% off your first order, earn 
+loyalty points for some awesome discounts, stay up to date on seasonal items and monthly class schedules & themes, to get emails for 
+baking tips and tricks and for a fun surprise for your birthday!</h1>
+<div class="mx-auto border w-4/12 h-auto max-w-xl font-mono bg-gray-200 pt-8 pl-28 mt-16 shadow-xl text-lg">
+    <h2 class="pl-24 text-xl">Sign Up</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.name.label(class='form-label ') }}
+        {{ form.name(class='form-control w-72 p-2', placeholder='Name') }}
+
+        {{ form.email.label(class='form-label') }}
+        {{ form.email(class='form-control w-72 p-2', placeholder='Email') }}
+
+        {{ form.birthday.label(class='form-label') }}
+        {{ form.birthday(class="form-control w-72 p-2", placeholder='birthday')}}
+
+        {#<div class="w-full mt-4 ">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-date">
+                What is your birthday?
+            </label>
+            <div class="relative ">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                  </svg>
+                </div>
+                <input name="birthday" datepicker type="text" class="bg-gray-200 p-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+            </div>
+        </div>#}
+
+        {{ form.password.label(class='form-label') }}
+        {{ form.password(class='form-control w-72 p-2', placeholder='Password') }}
+
+        {{ form.confirm_password.label(class='form-label') }}
+        {{ form.confirm_password(class='form-control w-72 p-2', placeholder='Confirm Password') }}
+
+        <div class="bg-primary rounded-full w-2/3 d-grid gap-2 my-3">
+            {{ form.submit(class='w-full btn btn-primary-content') }}
+        </div>
+    </form>
+</div>
+
+
+
+
+{% endblock %}

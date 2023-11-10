@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="flex justify-center text-xl text-mono">MY REVIEWS</h1>
+
+{% for review in review %}
+
+<a href="/ind_review/{{ review.id }}" class="card w-96 bg-base-100 shadow-xl mx-auto mt-4">
+  <div class="card-body">
+    <h5>Name:</h5>
+    <h1 class="card-title">{{ review.name }}</h1>
+    <h5>Rating:</h5>
+    {{ review.rating }}
+    <h5>Comments:</h5>
+    <p class="card-subtitle">{{ review.comments}}</p>
+  </div>
+
+</a> 
+
+{% endfor %}
+
+{% endblock %}

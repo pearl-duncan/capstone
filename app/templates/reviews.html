@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="carousel w-full">
+  <div id="slide1" class="carousel-item relative w-full">
+    <img src="../static/capstone products/aaa.jpg" class="w-full" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide4" class="btn btn-circle">❮</a> 
+      <div class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+      <div class="rating rating-lg">
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline"  />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" checked />
+      </div>
+      <h1 class="text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-zinc-300 w-96">I've ordered from Gemstone Bakery for many occasions, and have tried just about everything they serve. 
+      The baked goods are top tier amazing (esspecially the cakes)! The baker, Pearl, has made my wedding cake and multiple birthday cakes 
+      for me and my family in the last 2 years. I will continue to use Gemstone Bakery for many years to come!</h1>
+      <h3 class="text-zinc-300">- Megan</h3>
+      </div>
+      <a href="#slide2" class="btn btn-circle">❯</a>
+    </div>
+  </div> 
+
+
+  <div id="slide2" class="carousel-item relative w-full">
+    <img src="../static/capstone products/aaa.jpg" class="w-full" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide1" class="btn btn-circle">❮</a> 
+      <div class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+      <div class="rating rating-lg">
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline"  />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" checked />
+      </div>
+      <h1 class="text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-zinc-300 w-96">Gemstone Bakery came through for my daughter's 
+      birthday with the most delicious and beautiful cake. Thank you very much for making it happen!</h1>
+      <h3 class="text-zinc-300">- Sean</h3>
+
+      </div>
+      <a href="#slide3" class="btn btn-circle">❯</a>
+    </div>
+  </div> 
+
+  <div id="slide3" class="carousel-item relative w-full">
+    <img src="../static/capstone products/aaa.jpg" class="w-full" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide2" class="btn btn-circle">❮</a> 
+      <div class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+      <div class="rating rating-lg">
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline"  />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" checked/>
+      </div>
+      <h1 class="text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-zinc-300 w-96">WRITE A REVIEW HERE</h1>
+      <h3 class="text-zinc-300">- name</h3>
+
+      </div>
+      <a href="#slide4" class="btn btn-circle">❯</a>
+    </div>
+  </div> 
+
+  <div id="slide4" class="carousel-item relative w-full">
+    <img src="../static/capstone products/aaa.jpg" class="w-full" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide3" class="btn btn-circle">❮</a> 
+      <div class="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+      <div class="rating rating-lg">
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline"  />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" />
+        <input type="radio" name="rating-4" class="mask mask-star-2 bg-green-500 outline" checked/>
+      </div>
+      <h1 class="text-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-zinc-300 w-96">WRITE A REVIEW HERE</h1>
+      <h3 class="text-zinc-300">- name</h3>
+
+      </div>
+      <a href="#slide1" class="btn btn-circle">❯</a>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

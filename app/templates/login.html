@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mx-auto border w-4/12 h-auto max-w-xl font-mono bg-gray-200 pt-8 pl-28 mt-16 shadow-xl text-lg">
+    <h2 class="pl-24 text-xl">Sign In</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.email.label(class='form-label') }}
+        {{ form.email(class='form-control w-72 p-2', placeholder='Email') }}
+
+        {{ form.password.label(class='form-label') }}
+        {{ form.password(class='form-control w-72 p-2', placeholder='Password') }}
+
+
+        <div class="bg-primary rounded-full w-2/3 d-grid gap-2 my-3">
+            {{ form.submit(class='w-full btn btn-primary-content') }}
+        </div>
+        
+        <a class='btn btn-stuccess mr-28' href="/signup">Don't have an accout? Sign up here</a>
+
+
+
+    </form>
+</div>
+
+
+
+
+{% endblock %}

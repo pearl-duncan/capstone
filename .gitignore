@@ -1,0 +1,6 @@
+.env
+my_venv
+__pycache__
+migrations
+node_modules
+static
