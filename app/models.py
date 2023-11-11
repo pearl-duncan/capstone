@@ -24,6 +24,7 @@ class User(db.Model, UserMixin):
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
     created_by = db.Column(db.Integer, db.ForeignKey("user.id"), nullable = False)
     email = db.Column(db.String, nullable=False)
     phone = db.Column(db.String, nullable=False)
@@ -33,8 +34,9 @@ class Order(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String)
 
-    def __init__(self, crated_by, email, phone, pickup_or_delivery, date, item, quantity, description):
-        self.crated_by = crated_by
+    def __init__(self, name, created_by, email, phone, pickup_or_delivery, date, item, quantity, description):
+        self.name = name
+        self.created_by = created_by
         self.email = email
         self.phone = phone
         self.pickup_or_delivery = pickup_or_delivery
@@ -45,13 +47,20 @@ class Order(db.Model):
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Integer, db.ForeignKey("user.id"), nullable = False)
+    name = db.Column(db.String, nullable = False)
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     rating = db.Column(db.String, nullable=False)
     comments = db.Column(db.String, nullable=False)
     date_created = db.Column(db.DateTime, nullable=False, default= datetime.utcnow)
 
-    def __init__(self, name, rating, comments):
+    def __init__(self, name, rating, comments, author_id):
         self.name = name
         self.rating = rating
         self.comments = comments
+        self.author_id = author_id
 
+    def update(self, name, rating, comments):
+        pass
+
+    def delete(self, name, rating, comments):
+        pass

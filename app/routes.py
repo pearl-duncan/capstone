@@ -31,11 +31,13 @@ def order():
             item = request.form.get('item')
             quantity = request.form.get('quantity')
             description = request.form.get('description')
+            created_by=current_user.id
 
-            order = Order(name, email, phone, pickup_or_delivery, date, item, quantity, description)
+            order = Order(name=name, email=email, phone=phone, pickup_or_delivery=pickup_or_delivery, date=date, item=item, quantity=quantity, description=description, created_by=created_by)
 
             db.session.add(order)
             db.session.commit()
+            flash('Order placed!, Congrats!')
     else:
         flash('Please log in to place an order')
         return redirect(url_for('gallery'))
@@ -55,17 +57,19 @@ def write_review():
     form = ReviewForm()
     if current_user.is_authenticated:
         if request.method == 'POST':
-            flash('form submitted!', 'success')
+            print('form submitted!', 'success')
             name = form.name.data
             rating = request.form.get('rating')
             comments = form.comments.data
 
-            review = Review(name=name, rating=rating, comments=comments)
+            review = Review(name=name, rating=rating, comments=comments, author_id=current_user.id)
 
             db.session.add(review)
             db.session.commit()
+            flash('Review successfully sent!')
+            return redirect(url_for('my_reviews'))
     else:
-        flash('please log in to write a review')
+        flash('Please log in to write a review')
         return redirect(url_for('gallery'))
     return render_template('write-review.html', form=form)
 
@@ -73,41 +77,39 @@ def write_review():
 @login_required
 def my_reviews():
     review = Review.query.filter_by(name=current_user.name).all()
-    print(review[0])
     return render_template('my_reviews.html', review=review)
 
-@app.route('/update-review/<review_id>')
+@app.route('/update-review/<review_id>', methods=['GET', 'POST'])
 @login_required
 def update(review_id):
     review = Review.query.get(review_id)
     if not review:
         flash('That review does not exist', 'danger')
         return redirect(url_for('home'))
-    if current_user.id != review.user_id:
+    if current_user.id != review.author_id:
         flash('You cannot edit another user\'s review', 'danger')
         return redirect(url_for('my_reviews', review_id=review_id))
     form = ReviewForm()
     if request.method == 'POST':
-        if form.validate():
-            name = form.name.data
-            rate = form.rate.data
-            comments = form.comments.data
+        name = request.form.get('name')
+        rate = request.form.get("rating")
+        comments = request.form.get('comments')
 
-            review.name = name
-            review.rate = rate
-            review.comments = comments
+        review.name = name
+        review.rate = rate
+        review.comments = comments
 
-            db.session.commit()
-            flash('Successfully updated your review', 'success')
-            return redirect(url_for('my_reviews', review_id=review_id))
+        db.session.commit()
+        flash('Successfully updated your review', 'success')
+        return redirect(url_for('my_reviews', review_id=review_id, form=form))
 
-    return render_template("my_reviews.html", r=review, form=form)
+    return render_template("my_reviews.html", review=review, form=form)
 
 @app.route('/ind_review/<review_id>')
 @login_required
 def ind_review(review_id):
     review = Review.query.get(review_id)
-    return render_template('ind_review.html', r=review)
+    return render_template('ind_review.html', review=review)
 
 
 @app.route('/delete-review/<review_id>')
@@ -117,21 +119,20 @@ def delete(review_id):
     if not review:
         flash('That review does not exist', 'danger')
         return redirect(url_for('home'))
-    if current_user.id != review.user_id:
+    if current_user.id != review.author_id:
         flash('You cannot delete another user\'s review', 'danger')
         return redirect(url_for('my_reviews', review_id=review_id))
 
     db.session.delete(review)
     db.session.commit()
     flash('Successfully deleted your review!', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for("my_reviews", review_id=review_id))
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
     if request.method == 'POST':
-        flash("Form Submitted!", 'success')
         name = form.name.data
         email = form.email.data
         birthday = form.birthday.data
@@ -164,7 +165,6 @@ def login():
             return redirect(url_for('home'))
     form = LoginForm()
     if request.method == 'POST':
-        flash("Form Submitted!", 'success')
 
         if form.validate():
             email = form.email.data
@@ -191,6 +191,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash("Goodbye!")
     return redirect(url_for('login'))
 
 

@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<form class="card w-96 bg-base-100 shadow-xl mx-auto mt-4">
+<form class="card w-96 bg-base-100 shadow-xl mx-auto mt-4" method="POST" action="{{url_for('update', review_id=review.id) }}">
   <div class="card-body">
     <h1>Name</h1>
-    <input type="text" class="card-title" value="{{ r.name }}"/>
+    <input type="text" name="name" class="card-title" value="{{ review.name }}"/>
     <p>rating</p>
-    <input type="number" min="1" max="5" value="{{ r.rating }}"/>
+    <input type="number" name="rating" min="1" max="5" value="{{ review.rating }}"/>
     <p>comments</p>
-    <input type="text" class="card-subtitle" value="{{ r.comments}}"
+    <input type="text" name="comments" class="card-subtitle" value="{{ review.comments}}"/>
     <div class="card-actions justify-end">
-      <a type="submit" href="{ {url_for('update') }}" class="btn btn-primary-focus">Update</a>
-      <a type="submit" href="{{ url_for('delete') }}" class="btn btn-primary-focus">Delete</a>
+      <button type="submit"  class="btn btn-primary-focus">Update</button>
+      <a type="submit" href="{{ url_for('delete', review_id=review.id) }}" class="btn btn-primary-focus">Delete</a>
     </div>
   </div>
 </form> 

@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, EqualTo
 from datetime import datetime
 
 class OrderForm(FlaskForm):
-    name = StringField('Name', [DataRequired()])
+    created_by = StringField('Name', [DataRequired()])
     email = StringField('Email', [DataRequired()])
     phone = StringField('Phone Number', [DataRequired()])
     pickup_or_delivery = RadioField('Pickup or Delivery?', [DataRequired()], choices=[('pickup', 'Pickup'), ('delivery', 'Delivery')], default='pickup')
