@@ -10,7 +10,7 @@ Flask-DotEnv==0.1.2
 Flask-Login==0.6.2
 Flask-Migrate==4.0.5
 Flask-Moment==1.0.5
-Flask-SQLAlchemy==3.1.1
+Flask-SQLAlchemy==3.0.3
 Flask-Toastr==0.5.8
 Flask-WTF==1.2.1
 greenlet==3.0.1
