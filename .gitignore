@@ -3,4 +3,4 @@ my_venv
 __pycache__
 migrations
 node_modules
-static
+logo_files
